@@ -5,8 +5,7 @@
 
     <!-- Basic Page Needs
   ================================================== -->
-    <meta charset="utf-8">
-    <title>Novena- Health Care &amp; Medical template</title>
+    <meta charset="<?php language_attributes() ?>">
 
 
     <!-- Mobile Specific Metas
@@ -21,7 +20,7 @@
     <meta name="theme-name" content="novena" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php get_template_directory_uri( ); ?>./images/favicon.png" />
 
 
     <!-- 
@@ -30,7 +29,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body id="top">
+<body id="top" class="body_class">
 
     <header>
         <div class="header-top-bar">
