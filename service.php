@@ -44,10 +44,12 @@ get_header();
 					</div>
 				</div>
 
-			<?php endwhile; ?>
+			<?php endwhile;
+			wp_reset_postdata(); ?>
 		</div>
 	</div>
 </section>
+
 
 <!-- cta-page -->
 <section class="section cta-page" style="background-image: url('<?php echo get_post_meta(get_the_ID(), 'service-cta-background', true);  ?>')">
