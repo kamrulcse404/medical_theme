@@ -55,12 +55,9 @@ get_header();
 		<div class="row">
 			<div class="col-lg-7">
 				<div class="cta-content">
-					<div class="divider mb-4">
-
-					</div>
+					<div class="divider mb-4"></div>
 					<h2 class="mb-5 text-lg">
-						12333
-						<?php echo get_post_meta(get_the_ID(), 'service-cta-title', true); ?>
+						<?php print_r(get_post_meta(get_the_ID(), 'service-cta-title', true)); ?>
 					</h2>
 					<a href="appoinment.html" class="btn btn-main-2 btn-round-full">
 						<?php echo get_post_meta(get_the_ID(), 'service-cta-btn', true); ?>
