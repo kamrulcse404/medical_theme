@@ -37,3 +37,41 @@ function custom_post_type_services()
     register_post_type('services', $args);
 }
 add_action('init', 'custom_post_type_services');
+
+
+function create_doctor_custom_post_type() {
+    $labels = array(
+        'name'               => _x( 'Doctors', 'post type general name', 'textdomain' ),
+        'singular_name'      => _x( 'Doctor', 'post type singular name', 'textdomain' ),
+        'menu_name'          => _x( 'Doctors', 'admin menu', 'textdomain' ),
+        'name_admin_bar'     => _x( 'Doctor', 'add new on admin bar', 'textdomain' ),
+        'add_new'            => _x( 'Add New', 'doctor', 'textdomain' ),
+        'add_new_item'       => __( 'Add New Doctor', 'textdomain' ),
+        'new_item'           => __( 'New Doctor', 'textdomain' ),
+        'edit_item'          => __( 'Edit Doctor', 'textdomain' ),
+        'view_item'          => __( 'View Doctor', 'textdomain' ),
+        'all_items'          => __( 'All Doctors', 'textdomain' ),
+        'search_items'       => __( 'Search Doctors', 'textdomain' ),
+        'parent_item_colon'  => __( 'Parent Doctors:', 'textdomain' ),
+        'not_found'          => __( 'No doctors found.', 'textdomain' ),
+        'not_found_in_trash' => __( 'No doctors found in Trash.', 'textdomain' )
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'doctor' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
+    );
+
+    register_post_type( 'doctor', $args );
+}
+add_action( 'init', 'create_doctor_custom_post_type');
