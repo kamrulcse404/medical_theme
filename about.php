@@ -42,7 +42,7 @@ get_header();
 	<div class="container">
 		<div class="row">
 
-		
+
 			<div class="col-lg-3 col-md-6">
 				<div class="about-block-item mb-5 mb-lg-0">
 					<img src="<?php echo get_template_directory_uri(); ?>/images/about/about-1.jpg" alt="" class="img-fluid w-100">
@@ -61,7 +61,7 @@ get_header();
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-4">
-				<h2 class="title-color">Our Doctors achievements </h2>
+				<h2 class="title-color"><?php echo get_post_meta(get_the_ID(), 'about-section-achivements', true) ?></h2>
 				<div class="divider mt-4 mb-5 mb-lg-0"></div>
 			</div>
 			<div class="col-lg-8">
@@ -160,12 +160,19 @@ get_header();
 	</div>
 </section>
 
+
+
+<!-- style="bacground: url(' -->
+<?php 
+// get_post_meta(get_the_ID(), 'about-section-testimonial-image', true)
+ ?>')"
+
 <section class="section testimonial">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 offset-lg-6">
 				<div class="section-title">
-					<h2 class="mb-4">What they say about us</h2>
+					<h2 class="mb-4"><?php echo get_post_meta(get_the_ID(), 'about-section-testimonial-title', true) ?></h2>
 					<div class="divider  my-4"></div>
 				</div>
 			</div>

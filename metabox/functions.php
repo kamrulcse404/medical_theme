@@ -75,6 +75,7 @@ function metabox_for_about(array $about_meta)
             'value' => 'about.php',
         ),
         'fields' => array(
+            // about section 
             array(
                 'id' => 'about-title',
                 'name' => 'Page Title',
@@ -91,11 +92,12 @@ function metabox_for_about(array $about_meta)
             array(
                 'id' => 'about-section-background',
                 'name' => 'Upload Background Image',
-                'default' => get_template_directory_uri(). '/images/bg/22.jpg',
+                'default' => get_template_directory_uri() . '/images/bg/22.jpg',
                 'type' => 'file',
             ),
 
 
+            // description 
             array(
                 'id' => 'about-description-title',
                 'name' => 'Description Title',
@@ -117,7 +119,7 @@ function metabox_for_about(array $about_meta)
             ),
 
 
-
+            // doctors custom post type 
             array(
                 'id' => 'about-doctors-container-title',
                 'name' => 'Container Title',
@@ -141,14 +143,88 @@ function metabox_for_about(array $about_meta)
                     'doctor' => 'Doctor',
                 ),
             ),
+
+
+            // achivements or awards
+            array(
+                'id' => 'about-section-achivements',
+                'name' => 'Doctor Achivement Title',
+                'default' => 'Our Doctors achievements',
+                'type' => 'text',
+            ),
+
+            // testimonial
+            array(
+                'id' => 'about-section-testimonial-image',
+                'name' => 'Testimonial Image Uploader',
+                'default' => get_template_directory_uri() . '/images/bg/bg-2.jpg',
+                'type' => 'file',
+            ),
+
+            array(
+                'id' => 'about-section-testimonial-title',
+                'name' => 'Testimonial Title',
+                'default' => 'What they say about us',
+                'type' => 'text',
+            ),
+
         ),
     );
 
     return
         $about_meta;
 }
-
-
-
-
 add_filter('cmb2_meta_boxes', 'metabox_for_about');
+
+
+
+
+
+// repeater add more option for fetaure  
+// function about_feature_metaboxes()
+// {
+//     $cmb = new_cmb2_box(array(
+//         'id' => 'about-feature-repeater',
+//         'title' => 'Add More Option',
+//         'object_types' => array('about'),
+//         'context' => 'normal',
+//         'priority' => 'high',
+//         'show_names' => true,
+//     ));
+
+//     $add_more_option = $cmb->add_field(array(
+//         'id' => 'about-feature',
+//         'type' => 'group',
+//         'repeatable' => true,
+//         'options' => array(
+//             'group_title' => 'Add More {#}',
+//             'add_button' => 'Add Another Option',
+//             'remove_button' => 'Remove Option',
+//             'closed' => true,
+//             'sortable' => true,
+//         ),
+//     ));
+
+//     $cmb->add_group_field($add_more_option, array(
+//         'name' => 'Feature Title',
+//         'desc' => 'Enter the feature title',
+//         'id' => 'about-feature-title',
+//         'type' => 'text',
+//     ));
+
+//     $cmb->add_group_field($add_more_option, array(
+//         'name' => 'Feature Description',
+//         'desc' => 'Enter the feature description',
+//         'id' => 'about-feature-description',
+//         'type' => 'wysiwyg',
+//     ));
+
+//     $cmb->add_group_field($add_more_option, array(
+//         'name' => 'Feature Image',
+//         'desc' => 'Upload your Feature Image',
+//         'id' => 'about-feature-image',
+//         'type' => 'file',
+//     ));
+// }
+
+// add_action('cmb2_admin_init', 'about_feature_metaboxes');
