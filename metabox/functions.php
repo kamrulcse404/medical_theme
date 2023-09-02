@@ -267,7 +267,7 @@ function about_feature_metaboxes()
 {
     $cmb = new_cmb2_box(array(
         'id' => 'about-feature-repeater',
-        'title' => 'Add More Option',
+        'title' => 'Add More Option For Feacture',
         'object_types' => array('page'),
         'show_on' => array(
             'key' => 'page-template',
@@ -314,3 +314,97 @@ function about_feature_metaboxes()
 }
 
 add_action('cmb2_admin_init', 'about_feature_metaboxes');
+
+
+
+// repeater add more option for achivement 
+function about_achivement_metaboxes()
+{
+    $cmb = new_cmb2_box(array(
+        'id' => 'about-achivement-repeater',
+        'title' => 'Add More Option For Achivement',
+        'object_types' => array('page'),
+        'show_on' => array(
+            'key' => 'page-template',
+            'value' => 'about.php',
+        ),
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true,
+    ));
+
+    $add_more_option = $cmb->add_field(array(
+        'id' => 'about-achivement',
+        'type' => 'group',
+        'repeatable' => true,
+        'options' => array(
+            'group_title' => 'Add More {#}',
+            'add_button' => 'Add Another Option',
+            'remove_button' => 'Remove Option',
+            'closed' => true,
+            'sortable' => true,
+        ),
+    ));    
+
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Achivement Image',
+        'desc' => 'Upload Your Achivement Image',
+        'id' => 'about-achivement-image',
+        'type' => 'file',
+    ));
+}
+
+add_action('cmb2_admin_init', 'about_achivement_metaboxes');
+
+
+
+// repeater add more option for testimonial 
+function about_testimonial_metaboxes()
+{
+    $cmb = new_cmb2_box(array(
+        'id' => 'about-testimonial-repeater',
+        'title' => 'Add More Option For Testimonial',
+        'object_types' => array('page'),
+        'show_on' => array(
+            'key' => 'page-template',
+            'value' => 'about.php',
+        ),
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true,
+    ));
+
+    $add_more_option = $cmb->add_field(array(
+        'id' => 'about-testimonial',
+        'type' => 'group',
+        'repeatable' => true,
+        'options' => array(
+            'group_title' => 'Add More {#}',
+            'add_button' => 'Add Another Option',
+            'remove_button' => 'Remove Option',
+            'closed' => true,
+            'sortable' => true,
+        ),
+    ));
+
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Testimonial Compliment',
+        'id' => 'about-testimonial-compliment',
+        'type' => 'text',
+    ));
+
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Doctor Name',
+        'id' => 'about-testimonial-doctor-name',
+        'type' => 'text',
+    ));
+
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Testimonial Compiment Description',
+        'id' => 'about-testimonial-compliment-desc',
+        'type' => 'wysiwyg',
+    ));
+}
+
+add_action('cmb2_admin_init', 'about_testimonial_metaboxes');
+

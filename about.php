@@ -38,6 +38,7 @@ get_header();
 	</div>
 </section>
 
+<!-- done  -->
 <section class="fetaure-page ">
 	<div class="container">
 		<div class="row">
@@ -71,11 +72,12 @@ get_header();
 			<?php }
 			}
 			?>
-			
+
 		</div>
 	</div>
 </section>
 
+<!-- done  -->
 <section class="section awards">
 	<div class="container">
 		<div class="row align-items-center">
@@ -85,36 +87,29 @@ get_header();
 			</div>
 			<div class="col-lg-8">
 				<div class="row">
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="award-img">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/about/3.png" alt="" class="img-fluid">
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="award-img">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/about/4.png" alt="" class="img-fluid">
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="award-img">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/about/1.png" alt="" class="img-fluid">
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="award-img">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/about/2.png" alt="" class="img-fluid">
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="award-img">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/about/5.png" alt="" class="img-fluid">
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 col-sm-6">
-						<div class="award-img">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/about/6.png" alt="" class="img-fluid">
-						</div>
-					</div>
+
+					<?php
+					$achivements =  get_post_meta(get_the_ID(), "about-achivement", true);
+
+					foreach ($achivements as $achivement) {
+						$img = '';
+
+						if (isset($achivement['about-achivement-image'])) {
+							$img = esc_html($achivement['about-achivement-image']);
+						}
+
+						if (!empty($achivement)) { ?>
+
+							<div class="col-lg-4 col-md-6 col-sm-6">
+								<div class="award-img">
+									<img src="<?php echo $img ?>" alt="" class="img-fluid">
+								</div>
+							</div>
+					<?php
+						}
+					}
+					?>
+
 				</div>
 			</div>
 		</div>
@@ -198,61 +193,41 @@ get_header();
 		</div>
 		<div class="row align-items-center">
 			<div class="col-lg-6 testimonial-wrap offset-lg-6">
-				<div class="testimonial-block">
-					<div class="client-info ">
-						<h4>Amazing service!</h4>
-						<span>John Partho</span>
-					</div>
-					<p>
-						They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
-					</p>
-					<i class="icofont-quote-right"></i>
 
-				</div>
+				<?php
+				$testimonials =  get_post_meta(get_the_ID(), 'about-testimonial', true);
 
-				<div class="testimonial-block">
-					<div class="client-info">
-						<h4>Expert doctors!</h4>
-						<span>Mullar Sarth</span>
-					</div>
-					<p>
-						They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
-					</p>
-					<i class="icofont-quote-right"></i>
-				</div>
+				foreach ($testimonials as $testimonial) {
+					$compliment = $name = $desc = '';
 
-				<div class="testimonial-block">
-					<div class="client-info">
-						<h4>Good Support!</h4>
-						<span>Kolis Mullar</span>
-					</div>
-					<p>
-						They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
-					</p>
-					<i class="icofont-quote-right"></i>
-				</div>
+					if (isset($testimonial['about-testimonial-compliment'])) {
+						$compliment = $testimonial['about-testimonial-compliment'];
+					}
+					if (isset($testimonial['about-testimonial-doctor-name'])) {
+						$name = $testimonial['about-testimonial-doctor-name'];
+					}
+					if (isset($testimonial['about-testimonial-compliment-desc'])) {
+						$desc = $testimonial['about-testimonial-compliment-desc'];
+					}
 
-				<div class="testimonial-block">
-					<div class="client-info">
-						<h4>Nice Environment!</h4>
-						<span>Partho Sarothi</span>
-					</div>
-					<p>
-						They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
-					</p>
-					<i class="icofont-quote-right"></i>
-				</div>
+					if (!empty($testimonials)) { ?>
+						<div class="testimonial-block">
+							<div class="client-info ">
+								<h4><?php echo $compliment ?></h4>
+								<span><?php echo $name ?></span>
+							</div>
+							<p>
+								<?php echo $desc ?>
+							</p>
+							<i class="icofont-quote-right"></i>
+						</div>
+				<?php
+					}
+				}
+				?>
 
-				<div class="testimonial-block">
-					<div class="client-info">
-						<h4>Modern Service!</h4>
-						<span>Kolis Mullar</span>
-					</div>
-					<p>
-						They provide great service facilty consectetur adipisicing elit. Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet nostrum nemo commodi numquam quod.
-					</p>
-					<i class="icofont-quote-right"></i>
-				</div>
+
+
 			</div>
 		</div>
 	</div>
