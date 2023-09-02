@@ -1,5 +1,5 @@
 <?php
-
+// custom post for services 
 function custom_post_type_services()
 {
     $labels = array(
@@ -38,7 +38,7 @@ function custom_post_type_services()
 }
 add_action('init', 'custom_post_type_services');
 
-
+// custom post for dotor 
 function create_doctor_custom_post_type() {
     $labels = array(
         'name'               => _x( 'Doctors', 'post type general name', 'textdomain' ),
@@ -75,3 +75,33 @@ function create_doctor_custom_post_type() {
     register_post_type( 'doctor', $args );
 }
 add_action( 'init', 'create_doctor_custom_post_type');
+
+// texonomoy for doctor 
+function create_doctor_taxonomy() {
+    $labels = array(
+        'name'              => _x( 'Doc Categories', 'taxonomy general name', 'textdomain' ),
+        'singular_name'     => _x( 'Doc Category', 'taxonomy singular name', 'textdomain' ),
+        'search_items'      => __( 'Search Doc Categories', 'textdomain' ),
+        'all_items'         => __( 'All Doc Categories', 'textdomain' ),
+        'parent_item'       => __( 'Parent Doc Category', 'textdomain' ),
+        'parent_item_colon' => __( 'Parent Doc Category:', 'textdomain' ),
+        'edit_item'         => __( 'Edit Doc Category', 'textdomain' ),
+        'update_item'       => __( 'Update Doc Category', 'textdomain' ),
+        'add_new_item'      => __( 'Add New Doc Category', 'textdomain' ),
+        'new_item_name'     => __( 'New Doc Category Name', 'textdomain' ),
+        'menu_name'         => __( 'Doc Categories', 'textdomain' ),
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => true,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'doc-category' ), // Replace 'doc-category' with your desired URL slug.
+    );
+
+    register_taxonomy( 'doc_category', 'doctor', $args );
+}
+
+add_action( 'init', 'create_doctor_taxonomy');
