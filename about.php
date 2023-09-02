@@ -42,17 +42,36 @@ get_header();
 	<div class="container">
 		<div class="row">
 
+			<?php
+			$features = get_post_meta(get_the_ID(), 'about-feature', true);
 
-			<div class="col-lg-3 col-md-6">
-				<div class="about-block-item mb-5 mb-lg-0">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/about/about-1.jpg" alt="" class="img-fluid w-100">
-					<h4 class="mt-3">Healthcare for Kids</h4>
-					<p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-				</div>
-			</div>
+			foreach ((array)$features as $key => $entry) {
+				$title = $desc = $img = '';
+				if (isset($entry['about-feature-title'])) {
+					$title = esc_html($entry['about-feature-title']);
+				}
+				if (isset($entry['about-feature-description'])) {
+					$desc = $entry['about-feature-description'];
+				}
+
+				if (isset($entry['about-feature-image'])) {
+					$img = esc_html($entry['about-feature-image']);
+				}
+
+				if (!empty($features)) { ?>
 
 
-
+					<div class="col-lg-3 col-md-6">
+						<div class="about-block-item mb-5 mb-lg-0">
+							<img src="<?php echo $img; ?>" alt="" class="img-fluid w-100">
+							<h4 class="mt-3"><?php echo $title; ?></h4>
+							<p><?php echo $desc; ?></p>
+						</div>
+					</div>
+			<?php }
+			}
+			?>
+			
 		</div>
 	</div>
 </section>
@@ -163,9 +182,9 @@ get_header();
 
 
 <!-- style="bacground: url(' -->
-<?php 
+<?php
 // get_post_meta(get_the_ID(), 'about-section-testimonial-image', true)
- ?>')"
+?>')"
 
 <section class="section testimonial">
 	<div class="container">

@@ -6,20 +6,15 @@
 get_header();
 ?>
 
-<section class="page-title bg-1">
+<!-- done  -->
+<section class="page-title bg-1" style="background: url('<?php echo get_post_meta(get_the_ID(), 'contatc-section-background', true); ?>');">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">Contact Us</span>
-					<h1 class="text-capitalize mb-5 text-lg">Get in Touch</h1>
-
-					<!-- <ul class="list-inline breadcumb-nav">
-            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-            <li class="list-inline-item"><span class="text-white">/</span></li>
-            <li class="list-inline-item"><a href="#" class="text-white-50">Contact Us</a></li>
-          </ul> -->
+					<span class="text-white"><?php echo get_post_meta(get_the_ID(), 'contact-title', true); ?></span>
+					<h1 class="text-capitalize mb-5 text-lg"><?php echo get_post_meta(get_the_ID(), 'contact-description', true); ?></h1>
 				</div>
 			</div>
 		</div>
@@ -27,28 +22,29 @@ get_header();
 </section>
 <!-- contact form start -->
 
+<!-- done  -->
 <section class="section contact-info pb-0">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4 col-md-6">
 				<div class="contact-block mb-4 mb-lg-0">
 					<i class="icofont-live-support"></i>
-					<h5>Call Us</h5>
-					+823-4565-13456
+					<h5><?php echo get_post_meta(get_the_ID(), 'contact-call-title', true); ?></h5>
+					<?php echo get_post_meta(get_the_ID(), 'contact-call-number', true); ?>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="contact-block mb-4 mb-lg-0">
 					<i class="icofont-support-faq"></i>
-					<h5>Email Us</h5>
-					contact@mail.com
+					<h5><?php echo get_post_meta(get_the_ID(), 'contact-email-title', true); ?></h5>
+					<?php echo get_post_meta(get_the_ID(), 'contact-email', true); ?>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-12">
 				<div class="contact-block mb-4 mb-lg-0">
 					<i class="icofont-location-pin"></i>
-					<h5>Location</h5>
-					North Main Street,Brooklyn Australia
+					<h5><?php echo get_post_meta(get_the_ID(), 'contact-location-title', true); ?></h5>
+					<?php echo get_post_meta(get_the_ID(), 'contact-location', true); ?>
 				</div>
 			</div>
 		</div>

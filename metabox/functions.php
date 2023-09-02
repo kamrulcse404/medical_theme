@@ -177,54 +177,140 @@ function metabox_for_about(array $about_meta)
 add_filter('cmb2_meta_boxes', 'metabox_for_about');
 
 
+// metabox for contact page
+function metabox_for_contact(array $contact_meta)
+{
+    $contact_meta[] = array(
+        'id' => 'contact-page_title',
+        'title' => 'Contact Page Content',
+        'object_types' => array('page'),
+        'show_on' => array(
+            'key' => 'page-template',
+            'value' => 'contact.php',
+        ),
+        'fields' => array(
+            // contact section 
+            array(
+                'id' => 'contact-title',
+                'name' => 'Contact Title',
+                'default' => 'Contact Us',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'contact-description',
+                'name' => 'Contact Description',
+                'default' => 'Get in Touch',
+                'type' => 'text',
+            ),
+
+            array(
+                'id' => 'contatc-section-background',
+                'name' => 'Upload Background Image',
+                'default' => get_template_directory_uri() . '/images/bg/22.jpg',
+                'type' => 'file',
+            ),
+
+            // contact info 
+            // number 
+            array(
+                'id' => 'contact-call-title',
+                'name' => 'Call Title',
+                'default' => 'Call Us',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'contact-call-number',
+                'name' => 'Contact Number',
+                'default' => '+823-4565-13456',
+                'type' => 'text',
+            ),
+            // email 
+            array(
+                'id' => 'contact-email-title',
+                'name' => 'Email Title',
+                'default' => 'Email Us',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'contact-email',
+                'name' => 'Type Contact Email',
+                'default' => 'contact@mail.com',
+                'type' => 'text',
+            ),
+            // location 
+            array(
+                'id' => 'contact-location-title',
+                'name' => 'Location Title',
+                'default' => 'Location',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'contact-location',
+                'name' => 'Type Contact LOcation',
+                'default' => 'North Main Street,Brooklyn Australia',
+                'type' => 'text',
+            ),
+        ),
+    );
+
+    return
+        $contact_meta;
+}
+add_filter('cmb2_meta_boxes', 'metabox_for_contact');
+
+
 
 
 
 // repeater add more option for fetaure  
-// function about_feature_metaboxes()
-// {
-//     $cmb = new_cmb2_box(array(
-//         'id' => 'about-feature-repeater',
-//         'title' => 'Add More Option',
-//         'object_types' => array('about'),
-//         'context' => 'normal',
-//         'priority' => 'high',
-//         'show_names' => true,
-//     ));
+function about_feature_metaboxes()
+{
+    $cmb = new_cmb2_box(array(
+        'id' => 'about-feature-repeater',
+        'title' => 'Add More Option',
+        'object_types' => array('page'),
+        'show_on' => array(
+            'key' => 'page-template',
+            'value' => 'about.php',
+        ),
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true,
+    ));
 
-//     $add_more_option = $cmb->add_field(array(
-//         'id' => 'about-feature',
-//         'type' => 'group',
-//         'repeatable' => true,
-//         'options' => array(
-//             'group_title' => 'Add More {#}',
-//             'add_button' => 'Add Another Option',
-//             'remove_button' => 'Remove Option',
-//             'closed' => true,
-//             'sortable' => true,
-//         ),
-//     ));
+    $add_more_option = $cmb->add_field(array(
+        'id' => 'about-feature',
+        'type' => 'group',
+        'repeatable' => true,
+        'options' => array(
+            'group_title' => 'Add More {#}',
+            'add_button' => 'Add Another Option',
+            'remove_button' => 'Remove Option',
+            'closed' => true,
+            'sortable' => true,
+        ),
+    ));
 
-//     $cmb->add_group_field($add_more_option, array(
-//         'name' => 'Feature Title',
-//         'desc' => 'Enter the feature title',
-//         'id' => 'about-feature-title',
-//         'type' => 'text',
-//     ));
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Feature Title',
+        'desc' => 'Enter the feature title',
+        'id' => 'about-feature-title',
+        'type' => 'text',
+    ));
 
-//     $cmb->add_group_field($add_more_option, array(
-//         'name' => 'Feature Description',
-//         'desc' => 'Enter the feature description',
-//         'id' => 'about-feature-description',
-//         'type' => 'wysiwyg',
-//     ));
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Feature Description',
+        'desc' => 'Enter the feature description',
+        'id' => 'about-feature-description',
+        'type' => 'wysiwyg',
+    ));
 
-//     $cmb->add_group_field($add_more_option, array(
-//         'name' => 'Feature Image',
-//         'desc' => 'Upload your Feature Image',
-//         'id' => 'about-feature-image',
-//         'type' => 'file',
-//     ));
-// }
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Feature Image',
+        'desc' => 'Upload your Feature Image',
+        'id' => 'about-feature-image',
+        'type' => 'file',
+    ));
+}
 
-// add_action('cmb2_admin_init', 'about_feature_metaboxes');
+add_action('cmb2_admin_init', 'about_feature_metaboxes');
