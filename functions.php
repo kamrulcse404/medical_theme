@@ -56,3 +56,10 @@ require_once('metabox/functions.php');
 
 // custom functions 
 require_once('functions/custom-post-type.php');
+
+// database 
+require_once('functions/database.php');
+
+
+// ajax call 
+require_once('functions/ajax_actions.php');

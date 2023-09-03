@@ -39,7 +39,14 @@ function enqueue_custom_styles()
 
     // Enqueue your custom JS files
     wp_enqueue_script('gmap', get_template_directory_uri() . '/plugins/google-map/gmap.js', array('google-maps'), '1.0.0', true);
+
     wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.0.0', true);
+
+
+    wp_enqueue_script('main_script', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0.0', true);
+
+
+    // wp_localize_script('my-custom-script', 'my_ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_styles');
