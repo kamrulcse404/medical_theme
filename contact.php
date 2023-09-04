@@ -65,48 +65,54 @@ get_header();
 		</div>
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12">
-				<form id="contact-form" class="contact__form " method="post" action="mail.php">
+
+
+
+				<form id="get_contact-form" ajax_url="<?php echo admin_url('admin-ajax.php'); ?>" class="contact__form " method="post" action="mail.php">
 					<!-- form message -->
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-12">
 							<div class="alert alert-success contact__msg" style="display: none" role="alert">
 								Your message was sent successfully.
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="form-group">
-								<input name="name" id="name" type="text" class="form-control" placeholder="Your Full Name">
+								<input name="user_full_name" id="name" type="text" class="form-control" placeholder="Your Full Name">
 							</div>
 						</div>
 
 						<div class="col-lg-6">
 							<div class="form-group">
-								<input name="email" id="email" type="email" class="form-control" placeholder="Your Email Address" required>
+								<input name="user_email" id="email" type="email" class="form-control" placeholder="Your Email Address" required>
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<input name="subject" id="subject" type="text" class="form-control" placeholder="Your Query Topic" required>
+								<input name="user_query_topic" id="subject" type="text" class="form-control" placeholder="Your Query Topic" required>
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<input name="phone" id="phone" type="text" class="form-control" placeholder="Your Phone Number" required>
+								<input name="user_phone_number" id="phone" type="text" class="form-control" placeholder="Your Phone Number" required>
 							</div>
 						</div>
 					</div>
 
 					<div class="form-group-2 mb-4">
-						<textarea name="message" id="message" class="form-control" rows="8" placeholder="Your Message" required></textarea>
+						<textarea name="user_message" id="message" class="form-control" rows="8" placeholder="Your Message" required></textarea>
 					</div>
 
 					<div>
 						<input class="btn btn-main btn-round-full" name="submit" type="submit" value="Send Messege"></input>
 					</div>
 				</form>
+
+
+
 			</div>
 		</div>
 	</div>

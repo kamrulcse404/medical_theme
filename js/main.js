@@ -3,20 +3,10 @@ jQuery(document).ready(function () {
   jQuery("#get_appoinment").submit(function (event) {
     event.preventDefault();
 
-    jQuery(".custom-form").addClass("processing-loader");
+    // jQuery(".custom-form").addClass("processing-loader");
 
-    // var name = jQuery("#get_name").val();
-
-    // if(name == ''){
-      
-    //   alert('Name Field Required !');
-    //   }
     var ajax_url = jQuery(this).attr("ajax_url");
-    // var ajax_url = my_ajax_object.ajax_url;
 
-    // alert(ajax_url);
-
-    // form functionality
     var form = jQuery("#get_appoinment").serialize();
     var formdata = new FormData();
     formdata.append("action", "get_appoinment_data");
@@ -32,31 +22,50 @@ jQuery(document).ready(function () {
       contentType: false,
 
       success: function (res) {
-        jQuery(".custom-form").removeClass("processing-loader");
-
-        // console.log(res) ;
         if (res.success === false) {
           alert(res.message);
-
-          if (res.type === "email_error") {
-            jQuery("#email_error").text(res.message);
-          } else {
-            jQuery("#email_error").text("");
-          }
-
-          if (res.type === "username_error") {
-            jQuery("#username_error").text(res.message);
-          } else {
-            jQuery("#username_error").text("");
-          }
         } else {
           alert(res.data);
-          jQuery("#register_new_client")[0].reset();
-          // alert(home_url) ;
           window.location.href = home_url;
         }
       },
+      error: function (err) {},
+    });
+  });
+});
 
+jQuery(document).ready(function () {
+  jQuery("#get_contact-form").submit(function (event) {
+    event.preventDefault();
+
+    var ajax_url = jQuery(this).attr("ajax_url");
+
+    var form = jQuery("#get_contact-form").serialize();
+    var formdata = new FormData();
+
+    formdata.append("action", "get_contact_data");
+    formdata.append("get_contact_data", form);
+
+    // alert(ajax_url);
+
+    // console.log("hello KAmrul");
+
+    // alert("from ajax");
+    jQuery.ajax(ajax_url, {
+      type: "POST",
+      data: formdata,
+      processData: false,
+      contentType: false,
+
+      success: function (res) {
+        // alert(res);
+        if (res.success === false) {
+          alert(res.message);
+        } else {
+          alert(res.data);
+          window.location.href = home_url;
+        }
+      },
       error: function (err) {},
     });
   });
