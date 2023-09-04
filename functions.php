@@ -18,21 +18,21 @@ require_once('enqueue_css_js.php');
 function my_theme()
 {
     add_theme_support('title-tag');
-
 }
 
 add_action('after_setup_theme', 'my_theme');
 
 // footer menus 
-function register_footer_menus() {
+function register_footer_menus()
+{
     register_nav_menus(
         array(
-            'footer_menu_1' => __( 'Footer Menu 1', 'doc_pro' ),
-            'footer_menu_2' => __( 'Footer Menu 2', 'doc_pro' ),
+            'footer_menu_1' => __('Footer Menu 1', 'doc_pro'),
+            'footer_menu_2' => __('Footer Menu 2', 'doc_pro'),
         )
     );
 }
-add_action( 'after_setup_theme', 'register_footer_menus');
+add_action('after_setup_theme', 'register_footer_menus');
 
 
 // header menus 
@@ -63,3 +63,17 @@ require_once('functions/database.php');
 
 // ajax call 
 require_once('functions/ajax_actions.php');
+
+
+// mailTrap 
+function mailtrap($phpmailer)
+{
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'smtp.mailtrap.io';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 2525;
+    $phpmailer->Username = 'dd723a540dede2';
+    $phpmailer->Password = '8eb1242054fc0a';
+}
+
+add_action('phpmailer_init', 'mailtrap');

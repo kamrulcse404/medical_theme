@@ -80,7 +80,28 @@ function get_contact_data()
     $table_name = $wpdb->prefix . 'user_contact';
 
     $wpdb->insert($table_name, $data);
-    // print_r("Hello Kamrul");
+
+    // send mail code start 
+
+    $to = 'anmtanvir872@gmail.com';
+    $subject = 'Subject';
+    // $body = $formdata['temp_desc'];
+    $headers[] = 'Content-type: text/html; charset=utf-8';
+    $headers[] = 'From:' . "testing@gmail.com";
+
+
+    //Message
+    $message = "Your registration is successful.Your registration number is 1234 ";
+
+    // foreach ($formdata as $index => $field) {
+    //     $message .= '<strong>' . $index . '</strong> :' . $field . '<br/>';
+    // }
+
+    $test = wp_mail($to, $subject, $message, $headers);
+
+
+    // send mail code end 
+
 
     // Send a response
     wp_send_json_success('Cotact Data Submitted !');
