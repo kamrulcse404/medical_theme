@@ -177,9 +177,7 @@ get_header();
 
 
 <!-- style="bacground: url(' -->
-<?php
-// get_post_meta(get_the_ID(), 'about-section-testimonial-image', true)
-?>')"
+
 
 <section class="section testimonial">
 	<div class="container">

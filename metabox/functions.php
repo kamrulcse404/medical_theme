@@ -317,6 +317,44 @@ add_action('cmb2_admin_init', 'about_feature_metaboxes');
 
 
 
+// repeater add more option for department single page   
+function single_department_metaboxes()
+{
+    $cmb = new_cmb2_box(array(
+        'id' => 'single_department-repeater',
+        'title' => 'Add More Option For Single Page Service',
+        'object_types' => array('departments'),
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true,
+    ));
+
+    $add_more_option = $cmb->add_field(array(
+        'id' => 'single-department-service',
+        'type' => 'group',
+        'repeatable' => true,
+        'options' => array(
+            'group_title' => 'Add More {#}',
+            'add_button' => 'Add Another Option',
+            'remove_button' => 'Remove Option',
+            'closed' => true,
+            'sortable' => true,
+        ),
+    ));
+
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Service Title',
+        'desc' => 'Enter the feature title',
+        'id' => 'service-feature-single-department',
+        'type' => 'text',
+    ));
+
+}
+
+add_action('cmb2_admin_init', 'single_department_metaboxes');
+
+
+
 // repeater add more option for achivement 
 function about_achivement_metaboxes()
 {
@@ -344,7 +382,7 @@ function about_achivement_metaboxes()
             'closed' => true,
             'sortable' => true,
         ),
-    ));    
+    ));
 
     $cmb->add_group_field($add_more_option, array(
         'name' => 'Achivement Image',
@@ -407,4 +445,3 @@ function about_testimonial_metaboxes()
 }
 
 add_action('cmb2_admin_init', 'about_testimonial_metaboxes');
-
