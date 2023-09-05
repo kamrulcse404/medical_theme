@@ -39,8 +39,8 @@
                         <ul class="top-bar-info list-inline-item pl-0 mb-0">
                             <li class="list-inline-item"><a href="mailto:support@gmail.com"><i class="icofont-support-faq mr-2"></i><?php global $doc_pro;
                                                                                                                                     echo $doc_pro['header-text-support']; ?></a></li>
-                            <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i><?php global $doc_pro;
-                                                                                                    echo $doc_pro['header-text-address']; ?></li>
+                            <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i><?    php global $doc_pro;
+                                echo $doc_pro['header-text-address']; ?></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -67,7 +67,17 @@
 
                 <div class="collapse navbar-collapse" id="navbarmain">
 
-                    <ul class="navbar-nav ml-auto">
+                    <?php 
+                    wp_nav_menu(array(
+                        'theme_location' => 'header_menu',
+                        'menu_class' => 'navbar-nav ml-auto',
+                        'container' => '',
+                        'walker' => new WP_Bootstrap_Navwalker,
+                    ));
+                    ?>
+
+
+                    <!-- <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
@@ -115,7 +125,7 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </nav>

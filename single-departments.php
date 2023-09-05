@@ -35,14 +35,23 @@ get_header();
 					<p class="lead"><?php echo the_content(); ?></p>
 
 
-					<h3 class="mt-5 mb-4">Services features</h3>
-					<div class="divider my-4"></div>
+					<?php
+					$services = get_post_meta(get_the_ID(), "single-department-service", true);
+					if (!empty($services)) { ?>
+						<h3 class="mt-5 mb-4">Services features</h3>
+						<div class="divider my-4"></div>
+					<?php
+					}
+					?>
+
+
+
 					<ul class="list-unstyled department-service">
 
 
 						<?php
 
-						$services = get_post_meta(get_the_ID(), "single-department-service", true);
+
 
 						// echo '<pre>';
 						// print_r($services);
@@ -73,7 +82,7 @@ get_header();
 
 					</ul>
 
-					<a href="appoinment.html" class="btn btn-main-2 btn-round-full">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a>
+					<a href="<?php echo home_url('/appoinment-page') ?>" class="btn btn-main-2 btn-round-full">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a>
 				</div>
 			</div>
 

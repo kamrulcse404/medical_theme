@@ -395,8 +395,9 @@ a:focus {
   font-size: 16px;
   transition: all 0.25s ease;
 }
+/* #navbarmain .active .nav-link { */
 #navbarmain .nav-link:hover,
-#navbarmain .active .nav-link {
+#navbarmain .current-menu-item .nav-link {
   color: #e12454;
 }
 
@@ -486,9 +487,9 @@ a:focus {
 .navigation li:last-child .dropdown-item {
   border-bottom: 0;
 }
-.navigation .dropdown-submenu.active > .dropdown-toggle,
+.navigation .dropdown-submenu.current-menu-item > .dropdown-toggle,
 .navigation .dropdown-submenu:hover > .dropdown-item,
-.navigation .dropdown-item.active,
+.navigation .dropdown-item.current-menu-item,
 .navigation .dropdown-item:hover {
   background: rgba(225, 36, 84, 0.05);
   color: #e12454;

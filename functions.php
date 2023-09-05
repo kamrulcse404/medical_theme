@@ -64,6 +64,9 @@ require_once('functions/database.php');
 // ajax call 
 require_once('functions/ajax_actions.php');
 
+// nav wakler 
+require_once ('class-wp-bootstrap-navwalker.php');
+
 
 // mailTrap 
 function mailtrap($phpmailer)
