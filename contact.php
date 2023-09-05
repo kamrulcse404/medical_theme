@@ -119,8 +119,14 @@ get_header();
 </section>
 
 
+<!-- <div class="google-map ">
+	<div id="map" data-latitude="40.712776" data-longitude="-74.005974" data-marker="<?php echo get_template_directory_uri(); ?>/images/marker.png"></div>
+</div> -->
+
 <div class="google-map ">
-	<div id="map" data-latitude="40.712776" data-longitude="-74.005974" data-marker="images/marker.png"></div>
+	<div id="map" class="text-center">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7306.0001064949265!2d90.464590789186!3d23.711692137937856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b70abed44b75%3A0x4b94bcb774fb6573!2sKonapara%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1693904140806!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
 </div>
 
 <?php

@@ -96,7 +96,7 @@ get_header();
 
 
 
-					<div class="col-lg-12 col-md-12">
+					<!-- <div class="col-lg-12 col-md-12">
 						<nav class="pagination py-2 d-inline-block">
 							<div class="nav-links">
 								<span aria-current="page" class="page-numbers current">1</span>
@@ -105,7 +105,7 @@ get_header();
 								<a class="page-numbers" href="#!"><i class="icofont-thin-double-right"></i></a>
 							</div>
 						</nav>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<!-- sidebar here  -->
