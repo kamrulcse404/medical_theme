@@ -2,18 +2,18 @@
 
 /**
  * Template Name: departments
- **/
+ **/	
 get_header();
 ?>
 
-<section class="page-title bg-1">
+<section class="page-title  bg-1" style="background: url('<?php echo get_post_meta(get_the_ID(), 'department-content-background', true); ?>');">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">All Department</span>
-					<h1 class="text-capitalize mb-5 text-lg">Care Department</h1>
+					<span class="text-white"><?php echo get_post_meta(get_the_ID(), 'department-content-title', true)  ?></span>
+					<h1 class="text-capitalize mb-5 text-lg"><?php echo get_post_meta(get_the_ID(), 'department-content-desc', true)  ?></h1>
 				</div>
 			</div>
 		</div>
@@ -26,9 +26,9 @@ get_header();
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<div class="section-title">
-					<h2>Award winning patient care</h2>
+					<h2><?php echo get_post_meta(get_the_ID(  ), 'department-section-title', true)  ?></h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					<p><?php echo get_post_meta(get_the_ID(  ), 'department-section-desc', true)  ?></p>
 				</div>
 			</div>
 		</div>

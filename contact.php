@@ -56,10 +56,9 @@ get_header();
 		<div class="row justify-content-center">
 			<div class="col-lg-6">
 				<div class="section-title text-center">
-					<h2 class="text-md mb-2">Contact us</h2>
+					<h2 class="text-md mb-2"><?php echo get_post_meta(get_the_ID(), 'contact-form-title', true) ?></h2>
 					<div class="divider mx-auto my-4"></div>
-					<p class="mb-5">Laboriosam exercitationem molestias beatae eos pariatur, similique, excepturi mollitia sit
-						perferendis maiores ratione aliquam?</p>
+					<p class="mb-5"><?php echo get_post_meta(get_the_ID(), 'contact-form-desc', true) ?></p>
 				</div>
 			</div>
 		</div>
@@ -120,7 +119,7 @@ get_header();
 
 
 <!-- <div class="google-map ">
-	<div id="map" data-latitude="40.712776" data-longitude="-74.005974" data-marker="<?php echo get_template_directory_uri(); ?>/images/marker.png"></div>
+	<div id="map" data-latitude="40.712776" data-longitude="-74.005974" data-marker="<?php //echo get_template_directory_uri(); ?>/images/marker.png"></div>
 </div> -->
 
 <div class="google-map ">

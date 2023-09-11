@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="service-item mb-4">
+            <div class="service-item mb-4"> 
                 <div class="icon d-flex align-items-center">
                     <i class="icofont-laboratory text-lg"></i>
                     <h4 class="mt-3 mb-3">Laboratory services</h4>

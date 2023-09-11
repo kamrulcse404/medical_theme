@@ -246,9 +246,21 @@ function metabox_for_contact(array $contact_meta)
             ),
             array(
                 'id' => 'contact-location',
-                'name' => 'Type Contact LOcation',
+                'name' => 'Type Contact Location',
                 'default' => 'North Main Street,Brooklyn Australia',
                 'type' => 'text',
+            ),
+            array(
+                'id' => 'contact-form-title',
+                'name' => 'Contact Form Title',
+                'default' => 'Contact us',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'contact-form-desc',
+                'name' => 'Contact Form Description',
+                'default' => 'Laboriosam exercitationem molestias beatae eos pariatur, similique, excepturi mollitia sit perferendis maiores ratione aliquam?',
+                'type' => 'wysiwyg',
             ),
         ),
     );
@@ -259,7 +271,192 @@ function metabox_for_contact(array $contact_meta)
 add_filter('cmb2_meta_boxes', 'metabox_for_contact');
 
 
+// metabox for Department page
+function metabox_for_department(array $department_meta)
+{
+    $department_meta[] = array(
+        'id' => 'department-page_title',
+        'title' => 'Department Page Title',
+        'object_types' => array('page'),
+        'show_on' => array(
+            'key' => 'page-template',
+            'value' => 'department.php',
+        ),
+        'fields' => array(
+            array(
+                'id' => 'department-content-title',
+                'name' => 'Department Content Title',
+                'default' => 'All Department',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'department-content-desc',
+                'name' => 'Department Content Description',
+                'default' => 'Care Department',
+                'type' => 'wysiwyg',
+            ),
+            array(
+                'id' => 'department-content-background',
+                'name' => 'Upload Background Image',
+                'default' => get_template_directory_uri() . '/images/bg/22.jpg',
+                'type' => 'file',
+            ), 
+            
+            array(
+                'id' => 'department-section-title',
+                'name' => 'Department Section Title',
+                'default' => 'Award winning patient care',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'department-section-desc',
+                'name' => 'Department Section Description',
+                'default' => 'Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.',
+                'type' => 'wysiwyg',
+            ),
 
+        ),
+    );
+
+    return $department_meta;
+}
+add_filter('cmb2_meta_boxes', 'metabox_for_department');
+
+
+// metabox for appoinment page
+function metabox_for_appoinment(array $appoinment_meta)
+{
+    $appoinment_meta[] = array(
+        'id' => 'appoinment_page_title',
+        'title' => 'Appoinment Container Extra Section',
+        'object_types' => array('page'),
+        'show_on' => array(
+            'key' => 'page-template',
+            'value' => 'appoinment.php',
+        ),
+        'fields' => array(
+            array(
+                'id' => 'appoinment-container-title',
+                'name' => 'Appoinment Title',
+                'default' => 'Book your Seat',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'appoinment-container-desc',
+                'name' => 'Appoinment Description',
+                'default' => 'Appoinment',
+                'type' => 'wysiwyg',
+            ),
+            array(
+                'id' => 'appoinment-container-background',
+                'name' => 'Upload background Image for Appoinment Container',
+                'default' => get_template_directory_uri() . '/images/bg/22.jpg',
+                'type' => 'file',
+            ),
+
+
+            array(
+                'id' => 'appoinment-book-contact-title',
+                'name' => 'Appoinment Book Contact Title',
+                'default' => 'Call for an Emergency Service!',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'appoinment-book-contact-number',
+                'name' => 'Appoinment Book Contact Number',
+                'default' => '+84 789 1256',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'appoinment-book-title',
+                'name' => 'Appoinment Book Title',
+                'default' => 'Book an appoinment',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'appoinment-book-desc',
+                'name' => 'Appoinment Book Description',
+                'default' => 'Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.',
+                'type' => 'wysiwyg',
+            ),
+        ),
+    );
+
+    return $appoinment_meta;
+}
+
+add_filter('cmb2_meta_boxes', 'metabox_for_appoinment');
+
+
+// metabox for doctors page
+function metabox_for_doctors(array $doctors_meta)
+{
+    $doctors_meta[] = array(
+        'id' => 'doctors_page_title',
+        'title' => 'Doctors Container Title',
+        'object_types' => array('page'),
+        'show_on' => array(
+            'key' => 'page-template',
+            'value' => 'all_doctors.php',
+        ),
+        'fields' => array(
+            array(
+                'id' => 'doctors-container-title',
+                'name' => 'Doctors Container Title',
+                'default' => 'All Doctors',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'doctors-container-desc',
+                'name' => 'Doctors Container Description',
+                'default' => 'Specalized Doctors',
+                'type' => 'wysiwyg',
+            ),
+            array(
+                'id' => 'doctors-container-background',
+                'name' => 'Upload background Image for Doctors Container',
+                'default' => get_template_directory_uri() . '/images/bg/22.jpg',
+                'type' => 'file',
+            ),
+
+            array(
+                'id' => 'doctors-section-title',
+                'name' => 'Doctors Section Title',
+                'default' => 'Doctors',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'doctors-section-desc',
+                'name' => 'Doctors Section Description',
+                'default' => 'We provide a wide range of creative services adipisicing elit. Autem maxime rem modi eaque, voluptate. Beatae officiis neque',
+                'type' => 'wysiwyg',
+            ),
+
+            array(
+                'id' => 'doctors-cta-desc',
+                'name' => 'Doctors CTA Section Description',
+                'default' => 'We are pleased to offer you the chance to have the healthy',
+                'type' => 'wysiwyg',
+            ),
+            array(
+                'id' => 'doctors-cta-button',
+                'name' => 'Doctors CTA Button Title',
+                'default' => 'GET APPOINMENT',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'doctors-cta-background',
+                'name' => 'Upload background Image for Doctors CTA',
+                'default' => get_template_directory_uri() . '/images/bg/banner.jpg',
+                'type' => 'file',
+            ),
+        ),
+    );
+
+    return $doctors_meta;
+}
+
+add_filter('cmb2_meta_boxes', 'metabox_for_doctors');
 
 
 // repeater add more option for fetaure  
@@ -348,7 +545,6 @@ function single_department_metaboxes()
         'id' => 'service-feature-single-department',
         'type' => 'text',
     ));
-
 }
 
 add_action('cmb2_admin_init', 'single_department_metaboxes');

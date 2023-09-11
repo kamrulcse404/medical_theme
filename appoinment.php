@@ -7,14 +7,14 @@
 get_header();
 ?>
 
-<section class="page-title bg-1">
+<section class="page-title bg-1"  style="background: url('<?php echo get_post_meta(get_the_ID(), 'appoinment-container-background', true); ?>');">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">Book your Seat</span>
-					<h1 class="text-capitalize mb-5 text-lg">Appoinment</h1>
+					<span class="text-white"><?php  echo get_post_meta(get_the_ID(), 'appoinment-container-title', true) ?></span>
+					<h1 class="text-capitalize mb-5 text-lg"><?php  echo get_post_meta(get_the_ID(), 'appoinment-container-desc', true) ?></h1>
 				</div>
 			</div>
 		</div>
@@ -29,15 +29,15 @@ get_header();
 					<div class="feature-icon mb-3">
 						<i class="icofont-support text-lg"></i>
 					</div>
-					<span class="h3">Call for an Emergency Service!</span>
-					<h2 class="text-color mt-3">+84 789 1256 </h2>
+					<span class="h3"><?php  echo get_post_meta(get_the_ID(), 'appoinment-book-contact-title', true) ?></span>
+					<h2 class="text-color mt-3"><?php  echo get_post_meta(get_the_ID(), 'appoinment-book-contact-number', true) ?></h2>
 				</div>
 			</div>
 
 			<div class="col-lg-8">
 				<div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
-					<h2 class="mb-2 title-color">Book an appoinment</h2>
-					<p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
+					<h2 class="mb-2 title-color"><?php  echo get_post_meta(get_the_ID(), 'appoinment-book-title', true) ?></h2>
+					<p class="mb-4"><?php  echo get_post_meta(get_the_ID(), 'appoinment-book-desc', true) ?></p>
 
 
 
@@ -46,6 +46,9 @@ get_header();
 							<div class="col-lg-6">
 								<div class="form-group">
 									<select class="form-control" id="exampleFormControlSelect1" name="department">
+
+
+
 										<option>Choose Department</option>
 										<option>Software Design</option>
 										<option>Development cycle</option>
@@ -54,12 +57,19 @@ get_header();
 										<option>Process Query</option>
 										<option>Cost and Duration</option>
 										<option>Modal Delivery</option>
+
+
+
+
 									</select>
 								</div>
 							</div>
 							<div class="col-lg-6">
 								<div class="form-group">
 									<select class="form-control" id="exampleFormControlSelect2" name="doctor">
+
+
+
 										<option>Select Doctors</option>
 										<option>Software Design</option>
 										<option>Development cycle</option>
@@ -68,6 +78,10 @@ get_header();
 										<option>Process Query</option>
 										<option>Cost and Duration</option>
 										<option>Modal Delivery</option>
+
+
+
+										
 									</select>
 								</div>
 							</div>

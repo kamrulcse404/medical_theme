@@ -37,8 +37,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <ul class="top-bar-info list-inline-item pl-0 mb-0">
-                            <li class="list-inline-item"><a href="mailto:support@gmail.com"><i class="icofont-support-faq mr-2"></i><?php global $doc_pro;
-                                                                                                                                    echo $doc_pro['header-text-support']; ?></a></li>
+                            <li class="list-inline-item"><a href="mailto:support@gmail.com"><i class="icofont-support-faq mr-2"></i><?php global $doc_pro;                                                                                                                   echo $doc_pro['header-text-support']; ?></a></li>
                             <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i><?    php global $doc_pro;
                                 echo $doc_pro['header-text-address']; ?></li>
                         </ul>
@@ -58,7 +57,7 @@
         <nav class="navbar navbar-expand-lg navigation" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="/images/logo.png" alt="" class="img-fluid">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="" class="img-fluid">
                 </a>
 
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">

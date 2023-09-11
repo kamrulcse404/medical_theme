@@ -6,14 +6,14 @@
 get_header();
 ?>
 
-<section class="page-title bg-1">
+<section class="page-title bg-1" style="background: url('<?php echo get_post_meta(get_the_ID(), 'doctors-container-background', true); ?>');">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">All Doctors</span>
-					<h1 class="text-capitalize mb-5 text-lg">Specalized doctors</h1>
+					<span class="text-white"><?php echo get_post_meta(get_the_ID(), 'doctors-container-title', true) ?></span>
+					<h1 class="text-capitalize mb-5 text-lg"><?php echo get_post_meta(get_the_ID(), 'doctors-container-desc', true) ?></h1>
 				</div>
 			</div>
 		</div>
@@ -27,9 +27,9 @@ get_header();
 		<div class="row justify-content-center">
 			<div class="col-lg-6 text-center">
 				<div class="section-title">
-					<h2>Doctors</h2>
+					<h2><?php echo get_post_meta(get_the_ID(), 'doctors-section-title', true) ?></h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>We provide a wide range of creative services adipisicing elit. Autem maxime rem modi eaque, voluptate. Beatae officiis neque </p>
+					<p><?php echo get_post_meta(get_the_ID(), 'doctors-section-desc', true) ?></p>
 				</div>
 			</div>
 		</div>
@@ -120,14 +120,17 @@ get_header();
 		</div>
 </section>
 <!-- /portfolio -->
-<section class="section cta-page">
+<section class="section cta-page" style="background: url('<?php echo get_post_meta(get_the_ID(), 'doctors-cta-background', true); ?>'); background-size: cover;">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-7">
 				<div class="cta-content">
 					<div class="divider mb-4"></div>
-					<h2 class="mb-5 text-lg">We are pleased to offer you the <span class="title-color">chance to have the healthy</span></h2>
-					<a href="appoinment.html" class="btn btn-main-2 btn-round-full">Get appoinment<i class="icofont-simple-right  ml-2"></i></a>
+					<h2 class="mb-5 text-lg">
+						<!-- We are pleased to offer you the <span class="title-color">chance to have the healthy</span> -->
+						<?php echo get_post_meta(get_the_ID(), 'doctors-cta-desc', true) ?>
+					</h2>
+					<a href="appoinment.html" class="btn btn-main-2 btn-round-full"><?php echo get_post_meta(get_the_ID(), 'doctors-cta-button', true) ?><i class="icofont-simple-right  ml-2"></i></a>
 				</div>
 			</div>
 		</div>

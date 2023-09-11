@@ -75,8 +75,9 @@ function mailtrap($phpmailer)
     $phpmailer->Host = 'smtp.mailtrap.io';
     $phpmailer->SMTPAuth = true;
     $phpmailer->Port = 2525;
-    $phpmailer->Username = 'dd723a540dede2';
-    $phpmailer->Password = '8eb1242054fc0a';
+    // $phpmailer->Username = 'dd723a540dede2';
+    // $phpmailer->Password = '8eb1242054fc0a';
 }
 
 add_action('phpmailer_init', 'mailtrap');
+

@@ -22,6 +22,9 @@ jQuery(document).ready(function () {
       contentType: false,
 
       success: function (res) {
+
+        document.getElementById("get_appoinment").reset(); 
+
         if (res.success === false) {
           alert(res.message);
         } else {
@@ -35,8 +38,11 @@ jQuery(document).ready(function () {
 });
 
 jQuery(document).ready(function () {
-  jQuery("#get_contact-form").submit(function (event) {
+  jQuery("#get_contact-form").submit(function (event) { 
+
+
     event.preventDefault();
+    // jQuery("#get_contact-form").addClass("processing-loader");
 
     var ajax_url = jQuery(this).attr("ajax_url");
 
@@ -46,11 +52,6 @@ jQuery(document).ready(function () {
     formdata.append("action", "get_contact_data");
     formdata.append("get_contact_data", form);
 
-    // alert(ajax_url);
-
-    // console.log("hello KAmrul");
-
-    // alert("from ajax");
     jQuery.ajax(ajax_url, {
       type: "POST",
       data: formdata,
@@ -58,14 +59,20 @@ jQuery(document).ready(function () {
       contentType: false,
 
       success: function (res) {
-        // alert(res);
+
+        document.getElementById("get_contact-form").reset();      
+
+        alert('res123');
+       
         if (res.success === false) {
-          alert(res.message);
+          alert(JSON.stringify(res.message));
         } else {
+          
           alert(res.data);
           window.location.href = home_url;
         }
       },
+
       error: function (err) {},
     });
   });
