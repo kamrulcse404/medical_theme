@@ -13,8 +13,8 @@ get_header();
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">Our blog</span>
-					<h1 class="text-capitalize mb-5 text-lg">Blog articles</h1>
+					<span class="text-white"><?php echo get_post_meta(get_the_ID(), 'blog-container-title', true)?></span>
+					<h1 class="text-capitalize mb-5 text-lg"><?php echo get_post_meta(get_the_ID(), 'blog-container-desc', true)?></h1>
 				</div>
 			</div>
 		</div>
@@ -31,7 +31,7 @@ get_header();
 					<?php
 
 
-					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+					// $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 					$blogs = new WP_Query(array(
 						'post_type' => 'post',
@@ -62,9 +62,9 @@ get_header();
 
 									<h2 class="mt-3 mb-3"><a href="blog-single.html"><?php echo the_title(); ?></a></h2>
 
-									<p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis aliquid architecto facere commodi cupiditate omnis voluptatibus inventore atque velit cum rem id assumenda quam recusandae ipsam ea porro, dicta ad.</p>
+									<p class="mb-4"><?php echo the_content(); ?></p>
 
-									<a href="blog-single.html" target="_blank" class="btn btn-main btn-icon btn-round-full">Read More <i class="icofont-simple-right ml-2  "></i></a>
+									<a href="<?php echo the_permalink(); ?>" target="_blank" class="btn btn-main btn-icon btn-round-full">Read More <i class="icofont-simple-right ml-2  "></i></a>
 								</div>
 							</div>
 						</div>

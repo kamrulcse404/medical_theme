@@ -7,14 +7,14 @@
 get_header();
 ?>
 
-<section class="page-title bg-1"  style="background: url('<?php echo get_post_meta(get_the_ID(), 'appoinment-container-background', true); ?>');">
+<section class="page-title bg-1" style="background: url('<?php echo get_post_meta(get_the_ID(), 'appoinment-container-background', true); ?>');">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white"><?php  echo get_post_meta(get_the_ID(), 'appoinment-container-title', true) ?></span>
-					<h1 class="text-capitalize mb-5 text-lg"><?php  echo get_post_meta(get_the_ID(), 'appoinment-container-desc', true) ?></h1>
+					<span class="text-white"><?php echo get_post_meta(get_the_ID(), 'appoinment-container-title', true) ?></span>
+					<h1 class="text-capitalize mb-5 text-lg"><?php echo get_post_meta(get_the_ID(), 'appoinment-container-desc', true) ?></h1>
 				</div>
 			</div>
 		</div>
@@ -29,15 +29,15 @@ get_header();
 					<div class="feature-icon mb-3">
 						<i class="icofont-support text-lg"></i>
 					</div>
-					<span class="h3"><?php  echo get_post_meta(get_the_ID(), 'appoinment-book-contact-title', true) ?></span>
-					<h2 class="text-color mt-3"><?php  echo get_post_meta(get_the_ID(), 'appoinment-book-contact-number', true) ?></h2>
+					<span class="h3"><?php echo get_post_meta(get_the_ID(), 'appoinment-book-contact-title', true) ?></span>
+					<h2 class="text-color mt-3"><?php echo get_post_meta(get_the_ID(), 'appoinment-book-contact-number', true) ?></h2>
 				</div>
 			</div>
 
 			<div class="col-lg-8">
 				<div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
-					<h2 class="mb-2 title-color"><?php  echo get_post_meta(get_the_ID(), 'appoinment-book-title', true) ?></h2>
-					<p class="mb-4"><?php  echo get_post_meta(get_the_ID(), 'appoinment-book-desc', true) ?></p>
+					<h2 class="mb-2 title-color"><?php echo get_post_meta(get_the_ID(), 'appoinment-book-title', true) ?></h2>
+					<p class="mb-4"><?php echo get_post_meta(get_the_ID(), 'appoinment-book-desc', true) ?></p>
 
 
 
@@ -48,18 +48,21 @@ get_header();
 									<select class="form-control" id="exampleFormControlSelect1" name="department">
 
 
+										<?php
 
-										<option>Choose Department</option>
-										<option>Software Design</option>
-										<option>Development cycle</option>
-										<option>Software Development</option>
-										<option>Maintenance</option>
-										<option>Process Query</option>
-										<option>Cost and Duration</option>
-										<option>Modal Delivery</option>
+										$departments = new WP_Query(array(
+											'post_type' => 'departments',
+										));
 
+										?>
 
+										<option> --Select-- </option>
+										<?php while ($departments->have_posts()) : $departments->the_post(); ?>
 
+											<option value="<?php echo the_title() ?>"><?php echo the_title() ?></option>
+
+										<?php endwhile;
+										wp_reset_postdata(); ?>
 
 									</select>
 								</div>
@@ -68,20 +71,22 @@ get_header();
 								<div class="form-group">
 									<select class="form-control" id="exampleFormControlSelect2" name="doctor">
 
+										<?php
 
+										$doctors = new WP_Query(array(
+											'post_type' => 'doctor',
+										));
 
-										<option>Select Doctors</option>
-										<option>Software Design</option>
-										<option>Development cycle</option>
-										<option>Software Development</option>
-										<option>Maintenance</option>
-										<option>Process Query</option>
-										<option>Cost and Duration</option>
-										<option>Modal Delivery</option>
+										?>
 
+										<option> --Select-- </option>
+										<?php while ($doctors->have_posts()) : $doctors->the_post(); ?>
 
+											<option value="<?php echo the_title() ?>"><?php echo the_title() ?></option>
 
-										
+										<?php endwhile;
+										wp_reset_postdata(); ?>
+
 									</select>
 								</div>
 							</div>

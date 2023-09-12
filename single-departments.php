@@ -2,14 +2,15 @@
 get_header();
 ?>
 
-<section class="page-title bg-1">
+
+<section class="page-title bg-1" style="background: url('<?php echo get_post_meta(get_the_ID(), 'single-department-container-background', true); ?>');">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white">Department Details</span>
-					<h1 class="text-capitalize mb-5 text-lg">Single Department</h1>
+					<h1 class="text-capitalize mb-5 text-lg"><?php echo the_title() ?></h1>
+					<span class="text-white"><?php echo the_content() ?></span>
 				</div>
 			</div>
 		</div>
@@ -22,7 +23,7 @@ get_header();
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="department-img">
-					<img src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="img-fluid">
+					<img src="<?php echo the_post_thumbnail_url('large') ?>" alt="" class="img-fluid">
 				</div>
 			</div>
 		</div>
@@ -51,11 +52,6 @@ get_header();
 
 						<?php
 
-
-
-						// echo '<pre>';
-						// print_r($services);
-						// echo '</pre>';
 						if (!empty($services)) {
 
 
@@ -92,22 +88,22 @@ get_header();
 
 					<ul class="list-unstyled">
 						<li class="d-flex justify-content-between align-items-center">
-							<span>Monday - Friday</span>
-							<span>9:00 - 17:00</span>
+							<span><?php echo get_post_meta(get_the_ID(), 'single-department-sidebar-schedule-1-day', true)  ?></span>
+							<span><?php echo get_post_meta(get_the_ID(), 'single-department-sidebar-schedule-1-time', true)  ?></span>
 						</li>
 						<li class="d-flex justify-content-between align-items-center">
-							<span>Saturday</span>
-							<span>9:00 - 16:00</span>
+							<span><?php echo get_post_meta(get_the_ID(), 'single-department-sidebar-schedule-2-day', true)  ?></span>
+							<span><?php echo get_post_meta(get_the_ID(), 'single-department-sidebar-schedule-2-time', true)  ?></span>
 						</li>
 						<li class="d-flex justify-content-between align-items-center">
-							<span>Sunday</span>
-							<span>Closed</span>
+							<span><?php echo get_post_meta(get_the_ID(), 'single-department-sidebar-schedule-3-day', true)  ?></span>
+							<span><?php echo get_post_meta(get_the_ID(), 'single-department-sidebar-schedule-3-time', true)  ?></span>
 						</li>
 					</ul>
 
 					<div class="sidebar-contatct-info mt-4">
 						<p class="mb-0">Need Urgent Help?</p>
-						<h3>+23-4565-65768</h3>
+						<h3><?php echo get_post_meta(get_the_ID(), 'single-department-sidebar-urgent-contact', true)  ?></h3>
 					</div>
 				</div>
 			</div>

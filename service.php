@@ -61,7 +61,7 @@ get_header();
 					<h2 class="mb-5 text-lg">
 						<?php print_r(get_post_meta(get_the_ID(), 'service-cta-title', true)); ?>
 					</h2>
-					<a href="appoinment.html" class="btn btn-main-2 btn-round-full">
+					<a href="<?php echo home_url('/appoinment-page') ?>" class="btn btn-main-2 btn-round-full">
 						<?php echo get_post_meta(get_the_ID(), 'service-cta-btn', true); ?>
 						<i class="icofont-simple-right  ml-2"></i></a>
 				</div>
