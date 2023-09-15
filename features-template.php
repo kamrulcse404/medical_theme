@@ -3,22 +3,22 @@
         <div class="feature-icon mb-4">
             <i class="icofont-surgeon-alt"></i>
         </div>
-        <span>24 Hours Service</span>
-        <h4 class="mb-3">Online Appoinment</h4>
-        <p class="mb-4">Get ALl time support for emergency.We have introduced the principle of family medicine.</p>
-        <a href="appoinment.html" class="btn btn-main btn-round-full">Make a appoinment</a>
+        <span><?php echo get_post_meta(get_the_ID(), 'index-feature-service-title', true) ?></span>
+        <h4 class="mb-3"><?php echo get_post_meta(get_the_ID(), 'index-feature-service-sub-title', true) ?></h4>
+        <p class="mb-4"><?php echo get_post_meta(get_the_ID(), 'index-feature-service-info', true) ?></p>
+        <a href="<?php  echo home_url('/appoinment') ?>" class="btn btn-main btn-round-full">Make a appoinment</a>
     </div>
 
     <div class="feature-item mb-5 mb-lg-0">
         <div class="feature-icon mb-4">
             <i class="icofont-ui-clock"></i>
         </div>
-        <span>Timing schedule</span>
-        <h4 class="mb-3">Working Hours</h4>
+        <span><?php echo get_post_meta(get_the_ID(), 'index-feature-time-title', true) ?></span>
+        <h4 class="mb-3"><?php echo get_post_meta(get_the_ID(), 'index-feature-time-sub-title', true) ?></h4>
         <ul class="w-hours list-unstyled">
-            <li class="d-flex justify-content-between">Sun - Wed : <span>8:00 - 17:00</span></li>
-            <li class="d-flex justify-content-between">Thu - Fri : <span>9:00 - 17:00</span></li>
-            <li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li>
+            <li class="d-flex justify-content-between"><?php echo get_post_meta(get_the_ID(), 'index-feature-time-day-one', true) ?><span><?php echo get_post_meta(get_the_ID(), 'index-feature-time-one', true) ?></span></li>
+            <li class="d-flex justify-content-between"><?php echo get_post_meta(get_the_ID(), 'index-feature-time-day-two', true) ?><span><?php echo get_post_meta(get_the_ID(), 'index-feature-time-two', true) ?></span></li>
+            <li class="d-flex justify-content-between"><?php echo get_post_meta(get_the_ID(), 'index-feature-time-day-Three', true) ?><span><?php echo get_post_meta(get_the_ID(), 'index-feature-time-three', true) ?></span></li>
         </ul>
     </div>
 
@@ -26,8 +26,9 @@
         <div class="feature-icon mb-4">
             <i class="icofont-support"></i>
         </div>
-        <span>Emegency Cases</span>
-        <h4 class="mb-3">1-800-700-6200</h4>
-        <p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .</p>
+        <span>
+            <li class="d-flex justify-content-between"><?php echo get_post_meta(get_the_ID(), 'index-emergency-title', true) ?></span>
+        <h4 class="mb-3"><?php echo get_post_meta(get_the_ID(), 'index-emergency-contact', true) ?></h4>
+        <p><?php echo get_post_meta(get_the_ID(), 'index-emergency-info', true) ?></p>
     </div>
 </div>

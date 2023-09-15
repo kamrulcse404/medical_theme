@@ -1,3 +1,5 @@
+// appoinment 
+
 jQuery(document).ready(function () {
   // register new client
   jQuery("#get_appoinment").submit(function (event) {
@@ -37,6 +39,8 @@ jQuery(document).ready(function () {
   });
 });
 
+
+// contact
 jQuery(document).ready(function () {
   jQuery("#get_contact-form").submit(function (event) { 
 
@@ -77,3 +81,46 @@ jQuery(document).ready(function () {
     });
   });
 });
+
+// comments 
+jQuery(document).ready(function () {
+  jQuery("#get-comment").submit(function (event) { 
+
+
+    event.preventDefault();
+    // jQuery("#get_contact-form").addClass("processing-loader");
+
+    var ajax_url = jQuery(this).attr("ajax_url");
+
+    var form = jQuery("#get-comment").serialize();
+    var formdata = new FormData();
+
+    formdata.append("action", "get_comment_data");
+    formdata.append("get_comment_data", form);
+
+    jQuery.ajax(ajax_url, {
+      type: "POST",
+      data: formdata,
+      processData: false,
+      contentType: false,
+
+      success: function (res) {
+
+        document.getElementById("get-comment").reset();      
+
+        alert('comment 123');
+       
+        if (res.success === false) {
+          alert(JSON.stringify(res.message));
+        } else {
+          
+          alert(res.data);
+          window.location.href = home_url;
+        }
+      },
+
+      error: function (err) {},
+    });
+  });
+});
+

@@ -1,6 +1,6 @@
 <?php
 
-
+// appoinment 
 add_action('wp_ajax_get_appoinment_data', 'get_appoinment_data');
 add_action('wp_ajax_nopriv_get_appoinment_data', 'get_appoinment_data');
 
@@ -45,7 +45,7 @@ function get_appoinment_data()
 
 
 
-
+// user contact 
 add_action('wp_ajax_get_contact_data', 'get_contact_data');
 add_action('wp_ajax_nopriv_get_contact_data', 'get_contact_data');
 
@@ -108,3 +108,39 @@ function get_contact_data()
 
     wp_die();
 }
+
+// comments 
+add_action('wp_ajax_get_comment_data', 'get_comment_data');
+add_action('wp_ajax_nopriv_get_comment_data', 'get_comment_data');
+
+function get_comment_data()
+{
+
+    $formdata = [];
+    wp_parse_str($_POST['get_comment_data'], $formdata);
+
+    $commentor_name = sanitize_text_field($formdata['commentor_name']);
+    $commentor_email = sanitize_email($formdata['commentor_email']);
+    $commentor_message = sanitize_text_field($formdata['commentor_message']);
+
+    global $wpdb;
+
+    $data = array(
+        'commentor_name' => $commentor_name,
+        'commentor_email' => $commentor_email,
+        'commentor_message' => $commentor_message,
+    );
+
+    // Insert data into the database
+    $table_name = $wpdb->prefix . 'user_comment'; // Use proper table prefix
+    $wpdb->insert($table_name, $data);
+
+
+
+    // Send a response
+    wp_send_json_success('Comment Submitted');
+
+
+    wp_die();
+}
+

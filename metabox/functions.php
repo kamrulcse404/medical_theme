@@ -178,32 +178,83 @@ add_filter('cmb2_meta_boxes', 'metabox_for_about');
 
 
 // metabox for blog page
-// function metabox_for_blog(array $blog_meta)
-// {
-//     $blog_meta[] = array(
-//         'id' => 'blog-page_title',
-//         'title' => 'Blog Page Content',
-//         'object_types' => array('page'),
-//         'show_on' => array(
-//             'key' => 'page-template',
-//             'value' => 'about.php',
-//         ),
-//         'fields' => array(
-//             // about section 
-//             array(
-//                 'id' => 'about-title',
-//                 'name' => 'Page Title',
-//                 'default' => 'About Us',
-//                 'type' => 'text',
-//             ),
+function metabox_for_blog(array $blog_meta)
+{
+    $blog_meta[] = array(
+        'id' => 'blog-page_title',
+        'title' => 'Blog Page Content',
+        'object_types' => array('page'),
+        'show_on' => array(
+            'key' => 'page-template',
+            'value' => 'blog.php',
+        ),
+        'fields' => array(
+            array(
+                'id' => 'blog-container-title',
+                'name' => 'Blog Container Title',
+                'default' => 'About Blog',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'blog-container-desc',
+                'name' => 'Blog Container Description',
+                'default' => 'About Blog Description',
+                'type' => 'wysiwyg',
+            ),
 
+            array(
+                'id' => 'blog-container-background',
+                'name' => 'Upload Blog Container Background Image',
+                'default' => get_template_directory_uri() . '/images/bg/22.jpg',
+                'type' => 'file',
+            ),
 
-//         ),
-//     );
+            // sidebar time schedule
 
-//     return $blog_meta;
-// }
-// add_filter('cmb2_meta_boxes', 'metabox_for_blog');
+            // array(
+            //     'id' => 'sidebar-schedule-day-one',
+            //     'name' => 'Sidebar Schedule Days One',
+            //     'default' => 'Monday - Friday',
+            //     'type' => 'text',
+            // ),
+            // array(
+            //     'id' => 'sidebar-schedule-time-one',
+            //     'name' => 'Sidebar Schedule Time One',
+            //     'default' => '9:00 - 17:00',
+            //     'type' => 'text',
+            // ),
+            // array(
+            //     'id' => 'sidebar-schedule-day-two',
+            //     'name' => 'Sidebar Schedule Days Two',
+            //     'default' => 'Saturday',
+            //     'type' => 'text',
+            // ),
+            // array(
+            //     'id' => 'sidebar-schedule-time-two',
+            //     'name' => 'Sidebar Schedule Time Two',
+            //     'default' => '9:00 - 16:00',
+            //     'type' => 'text',
+            // ),
+            // array(
+            //     'id' => 'sidebar-schedule-off-day',
+            //     'name' => 'Sidebar Schedule Off Day',
+            //     'default' => 'Sunday',
+            //     'type' => 'text',
+            // ),
+
+            // array(
+            //     'id' => 'sidebar-schedule-urgent-contact',
+            //     'name' => 'Sidebar Urgent Contact',
+            //     'default' => '+23-4565-65768',
+            //     'type' => 'text',
+            // ),
+
+        ),
+    );
+
+    return $blog_meta;
+}
+add_filter('cmb2_meta_boxes', 'metabox_for_blog');
 
 
 // metabox for contact page
@@ -495,6 +546,309 @@ function metabox_for_doctors(array $doctors_meta)
 add_filter('cmb2_meta_boxes', 'metabox_for_doctors');
 
 
+
+// metabox for doctors page
+function metabox_for_index(array $index_meta)
+{
+    $index_meta[] = array(
+        'id' => 'index_p_title',
+        'title' => 'Doctors Container Title',
+        'object_types' => array('page'),
+        'show_on' => array(
+            'key' => 'page-template',
+            'value' => 'index.php',
+        ),
+        'fields' => array(
+
+            // banner 
+            array(
+                'id' => 'index-banner-title',
+                'name' => 'Banner Title',
+                'default' => 'TOTAL HEALTH CARE SOLUTION',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-banner-sub-title',
+                'name' => 'Banner Sub-Title',
+                'default' => 'Your most trusted health partner',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-banner-desc',
+                'name' => 'Banner Description',
+                'default' => 'A repudiandae ipsam labore ipsa voluptatum quidem quae laudantium quisquam aperiam maiores sunt fugit, deserunt rem suscipit placeat.',
+                'type' => 'wysiwyg',
+            ),
+
+            array(
+                'id' => 'index-banner-background',
+                'name' => 'Banner Background Upload',
+                'default' => get_template_directory_uri() . '/images/bg/slider-bg-1.jpg',
+                'type' => 'file',
+            ),
+
+
+            // feature 
+            array(
+                'id' => 'index-feature-service-title',
+                'name' => 'Feature Title',
+                'default' => '24 Hours Service',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-feature-service-sub-title',
+                'name' => 'Feature Sub-Title',
+                'default' => 'Online Appoinment',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-feature-service-info',
+                'name' => 'Feature Information',
+                'default' => 'Get ALl time support for emergency.We have introduced the principle of family medicine.',
+                'type' => 'text',
+            ),
+
+            // feature time 
+            array(
+                'id' => 'index-feature-time-title',
+                'name' => 'Feature Time Title',
+                'default' => 'Timing schedule',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-feature-time-sub-title',
+                'name' => 'Feature Time Sub-Title',
+                'default' => 'Working Hours',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-feature-time-day-one',
+                'name' => 'Feature Time Day One',
+                'default' => 'Sun - Wed :',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-feature-time-one',
+                'name' => 'Feature Time One',
+                'default' => '8:00 - 17:00',
+                'type' => 'text',
+            ),
+
+            array(
+                'id' => 'index-feature-time-day-two',
+                'name' => 'Feature Time Day One',
+                'default' => 'Thu - Fri :',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-feature-time-two',
+                'name' => 'Feature Time Two',
+                'default' => '9:00 - 17:00',
+                'type' => 'text',
+            ),
+
+            array(
+                'id' => 'index-feature-time-day-Three',
+                'name' => 'Feature Time Day Three',
+                'default' => 'Sat - sun :',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-feature-time-three',
+                'name' => 'Feature Time Three',
+                'default' => '10:00 - 17:00',
+                'type' => 'text',
+            ),
+
+            // emergency 
+            array(
+                'id' => 'index-emergency-title',
+                'name' => 'Emergency Title',
+                'default' => 'Emegency Cases',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-emergency-contact',
+                'name' => 'Emergency Contact',
+                'default' => '1-800-700-6200',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-emergency-info',
+                'name' => 'Emergency Info',
+                'default' => 'Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .',
+                'type' => 'text',
+            ),
+
+            // about section 
+            array(
+                'id' => 'index-about-img-one',
+                'name' => 'About Image One',
+                'default' => get_template_directory_uri(  ) . '/images/about/img-1.jpg',
+                'type' => 'file',
+            ),
+
+            array(
+                'id' => 'index-about-img-two',
+                'name' => 'About Image Two',
+                'default' => get_template_directory_uri(  ) . '/images/about/img-2.jpg',
+                'type' => 'file',
+            ),
+            array(
+                'id' => 'index-about-img-three',
+                'name' => 'About Image Three',
+                'default' => get_template_directory_uri(  ) . '/images/about/img-3.jpg',
+                'type' => 'file',
+            ),
+
+            array(
+                'id' => 'index-about-title',
+                'name' => 'About Section Title',
+                'default' => 'Personal care
+                & healthy living',
+                'type' => 'text',
+            ),
+
+            array(
+                'id' => 'index-about-desc',
+                'name' => 'About Section Info',
+                'default' => 'We provide best leading medicle service Nulla perferendis veniam deleniti ipsum officia dolores repellat laudantium obcaecati neque.',
+                'type' => 'text',
+            ),
+
+            // service
+            array(
+                'id' => 'index-service-title',
+                'name' => 'Service Title',
+                'default' => 'Award winning patient care',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-service-desc',
+                'name' => 'Service Description',
+                'default' => 'Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.',
+                'type' => 'wysiwyg',
+            ),
+
+            // cta 
+            array(
+                'id' => 'index-cta-title-one',
+                'name' => 'CTA Title One',
+                'default' => 'Happy People',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-cta-number-one',
+                'name' => 'CTA Number One',
+                'default' => '58',
+                'type' => 'text',
+            ),
+
+            array(
+                'id' => 'index-cta-title-two',
+                'name' => 'CTA Title Two',
+                'default' => 'Surgery Comepleted',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-cta-number-two',
+                'name' => 'CTA Number Two',
+                'default' => '700',
+                'type' => 'text',
+            ),
+
+            array(
+                'id' => 'index-cta-title-three',
+                'name' => 'CTA Title Three',
+                'default' => 'Expert Doctors',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-cta-number-three',
+                'name' => 'CTA Number Three',
+                'default' => '40',
+                'type' => 'text',
+            ),
+
+            array(
+                'id' => 'index-cta-title-four',
+                'name' => 'CTA Title Four',
+                'default' => 'Worldwide Branch',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-cta-number-four',
+                'name' => 'CTA Number Four',
+                'default' => '10',
+                'type' => 'text',
+            ),
+
+
+            // testimonial 
+            array(
+                'id' => 'index-testimonial-title',
+                'name' => 'Testimonial Title',
+                'default' => 'We served over 5000+ Patients',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-testimonial-desc',
+                'name' => 'Testimonial Description',
+                'default' => 'Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.',
+                'type' => 'wysiwyg',
+            ),
+
+            // clients 
+
+            array(
+                'id' => 'index-client-title',
+                'name' => 'Client Title',
+                'default' => 'Partners who support us',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-client-desc',
+                'name' => 'Client Description',
+                'default' => 'Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.',
+                'type' => 'wysiwyg',
+            ),
+
+            // index appoinment 
+
+            array(
+                'id' => 'index-appoinment-title',
+                'name' => 'Appoinment Title',
+                'default' => 'Book appoinment',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-appoinment-desc',
+                'name' => 'Appoinment Description',
+                'default' => 'Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.',
+                'type' => 'wysiwyg',
+            ),
+            array(
+                'id' => 'index-appoinment-contact',
+                'name' => 'Appoinment Contact',
+                'default' => '+23 345 67980',
+                'type' => 'text',
+            ),
+            array(
+                'id' => 'index-appoinment-image',
+                'name' => 'Appoinment Image',
+                'default' => get_template_directory_uri(  ) . '/images/about/img-3.jpg',
+                'type' => 'file',
+            ),
+
+        ),
+    );
+
+    return $index_meta;
+}
+
+add_filter('cmb2_meta_boxes', 'metabox_for_index');
+
+
 // metabox for department single page
 function metabox_for_department_single(array $department_single_meta)
 {
@@ -652,6 +1006,63 @@ function metabox_for_doctor_single(array $doctor_single_meta)
 add_filter('cmb2_meta_boxes', 'metabox_for_doctor_single');
 
 
+
+// metabox for index testimonial page
+function metabox_for_index_testimonial(array $index_testimonial_meta)
+{
+    $index_testimonial_meta[] = array(
+        'id' => 'index-testimonial-page',
+        'title' => 'Index Testimonials',
+        'object_types' => array('testimonial'),
+
+        'fields' => array(
+            array(
+                'id' => 'index-testimonial-doc-name',
+                'name' => 'Doctor Name',
+                'default' => 'Partho Sarothi',
+                'type' => 'text',
+            ),
+        ),
+    );
+
+    return $index_testimonial_meta;
+}
+
+add_filter('cmb2_meta_boxes', 'metabox_for_index_testimonial');
+
+
+
+// metabox for blog single page
+function metabox_for_blog_single(array $blog_single_meta)
+{
+    $blog_single_meta[] = array(
+        'id' => 'department_single_page',
+        'title' => 'Single Department Container',
+        'object_types' => array('post'),
+
+        'fields' => array(
+            array(
+                'id' => 'single-blog-container-background',
+                'name' => 'Single Blog Container Background',
+                'default' => get_template_directory_uri() . '/images/bg/22.jpg',
+                'type' => 'file',
+            ),
+
+            array(
+                'id' => 'single-blog-blockquote',
+                'name' => 'Single Blog Blockquote',
+                'default' => 'A brand for a company is like a reputation for a person. You earn reputation by trying to do hard things well.',
+                'type' => 'wysiwyg',
+            ),
+        ),
+    );
+
+    return $blog_single_meta;
+}
+
+add_filter('cmb2_meta_boxes', 'metabox_for_blog_single');
+
+
 // repeater add more option for fetaure  
 function about_feature_metaboxes()
 {
@@ -704,6 +1115,7 @@ function about_feature_metaboxes()
 }
 
 add_action('cmb2_admin_init', 'about_feature_metaboxes');
+
 
 
 
@@ -964,3 +1376,84 @@ function single_doctor_expertise_metaboxes()
 }
 
 add_action('cmb2_admin_init', 'single_doctor_expertise_metaboxes');
+
+
+
+// repeater add more option for index service 
+function index_service_metaboxes()
+{
+    $cmb = new_cmb2_box(array(
+        'id' => 'index_service_repeater',
+        'title' => 'Add More Option For Index Service',
+        'object_types' => array('page'),
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true,
+    ));
+
+    $add_more_option = $cmb->add_field(array(
+        'id' => 'index_service',
+        'type' => 'group',
+        'repeatable' => true,
+        'options' => array(
+            'group_title' => 'Add More {#}',
+            'add_button' => 'Add Another Option',
+            'remove_button' => 'Remove Option',
+            'closed' => true,
+            'sortable' => true,
+        ),
+    ));
+
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Service Icon',
+        'id' => 'index_service_icon',
+        'type' => 'text',
+    ));
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Service Title',
+        'id' => 'index_service_title',
+        'type' => 'text',
+    ));
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Service Info',
+        'id' => 'index_service_info',
+        'type' => 'text',
+    ));
+}
+
+add_action('cmb2_admin_init', 'index_service_metaboxes');
+
+
+// repeater add more option for index clients 
+function index_client_metaboxes()
+{
+    $cmb = new_cmb2_box(array(
+        'id' => 'index_client_repeater',
+        'title' => 'Add More Option For Index Clients',
+        'object_types' => array('page'),
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true,
+    ));
+
+    $add_more_option = $cmb->add_field(array(
+        'id' => 'index_clients',
+        'type' => 'group',
+        'repeatable' => true,
+        'options' => array(
+            'group_title' => 'Add More {#}',
+            'add_button' => 'Add Another Option',
+            'remove_button' => 'Remove Option',
+            'closed' => true,
+            'sortable' => true,
+        ),
+    ));
+
+    $cmb->add_group_field($add_more_option, array(
+        'name' => 'Clients Logo',
+        'id' => 'index_client_logo',
+        'type' => 'file',
+    ));
+}
+
+add_action('cmb2_admin_init', 'index_client_metaboxes');

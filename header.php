@@ -56,8 +56,9 @@
         </div>
         <nav class="navbar navbar-expand-lg navigation" id="navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="" class="img-fluid">
+                <a class="navbar-brand" href="<?php echo home_url() ?>">
+                    <img src="<?php global $doc_pro;
+                                                    echo $doc_pro['header-logo']['url']; ?>" alt="" class="img-fluid">
                 </a>
 
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">

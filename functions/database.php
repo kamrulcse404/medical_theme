@@ -56,3 +56,27 @@ function create_database_for_user_contact()
 }
 register_activation_hook(__FILE__, 'create_database_for_user_contact');
 add_action('after_switch_theme', 'create_database_for_user_contact');
+
+
+
+// create database for comments 
+function create_database_for_comment()
+{
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'user_comment';
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name(
+        id INT NOT NULL AUTO_INCREMENT,
+        commentor_name VARCHAR(100) NOT NULL,
+        commentor_email VARCHAR(100) NOT NULL,
+        commentor_message TEXT NOT NULL,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    dbDelta($sql);
+}
+register_activation_hook(__FILE__, 'create_database_for_comment');
+add_action('after_switch_theme', 'create_database_for_comment');

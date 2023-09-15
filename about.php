@@ -6,6 +6,12 @@
 get_header();
 ?>
 
+
+
+
+<?php print_r(get_the_ID()); ?> 
+<?php echo get_post_meta(get_the_ID(), 'blog-container-title', true) ?>
+
 <!-- done  -->
 <section class="page-title bg-1" style="background: url('<?php echo get_post_meta(get_the_ID(), "about-section-background", true) ?>')">
 	<div class="overlay"></div>

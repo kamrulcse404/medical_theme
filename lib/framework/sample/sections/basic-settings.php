@@ -10,6 +10,16 @@ Redux::setSection($opt_name, array(
     'icon'             => 'fa fa-cog',
     'fields'           => array(
         array(
+            'id' => 'header-logo',
+            'type'    => 'media',
+            'title' => __('Website Logo', 'doc_pro'),
+            'subtitle' => __('Upload Your Website Logo', 'doc_pro'),
+            'default' => array(
+                'url' => get_template_directory_uri() . '/images/logo.png',
+            )
+
+        ),
+        array(
             'id' => 'header-text-support',
             'type' => 'text',
             'title' => __('Support Contact', 'doc_pro'),

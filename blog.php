@@ -7,14 +7,14 @@
 get_header();
 ?>
 
-<section class="page-title bg-1">
+<section class="page-title bg-1" style="background-image: url('<?php echo get_post_meta(get_the_ID(), 'blog-container-background', true);  ?>')">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="block text-center">
-					<span class="text-white"><?php echo get_post_meta(get_the_ID(), 'blog-container-title', true)?></span>
-					<h1 class="text-capitalize mb-5 text-lg"><?php echo get_post_meta(get_the_ID(), 'blog-container-desc', true)?></h1>
+					<span class="text-white"><?php echo get_post_meta(get_the_ID(), 'blog-container-title', true) ?></span>
+					<h1 class="text-capitalize mb-5 text-lg"><?php echo get_post_meta(get_the_ID(), 'blog-container-desc', true) ?></h1>
 				</div>
 			</div>
 		</div>
@@ -60,7 +60,7 @@ get_header();
 										<span class="text-black text-capitalize mr-3"><i class="icofont-calendar mr-1"></i> 28th January</span>
 									</div>
 
-									<h2 class="mt-3 mb-3"><a href="blog-single.html"><?php echo the_title(); ?></a></h2>
+									<h2 class="mt-3 mb-3"><a href="<?php echo get_the_permalink() ?>"><?php echo the_title(); ?></a></h2>
 
 									<p class="mb-4"><?php echo the_content(); ?></p>
 
@@ -70,6 +70,8 @@ get_header();
 						</div>
 					<?php
 					}
+
+					wp_reset_postdata();
 
 					?>
 
@@ -96,8 +98,12 @@ get_header();
 
 				</div>
 			</div>
+
+
+
 			<!-- sidebar here  -->
 			<?php
+
 			require_once('templates/blog/sidebar.php');
 			?>
 		</div>
