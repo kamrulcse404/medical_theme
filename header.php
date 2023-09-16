@@ -29,7 +29,20 @@
     <?php wp_head(); ?>
 </head>
 
+
+<?php // echo is_theme_active(); ?>
+
 <body id="top" class="body_class">
+
+
+
+
+<?php 
+
+
+
+
+?>
 
     <header>
         <div class="header-top-bar">

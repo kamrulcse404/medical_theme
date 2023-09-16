@@ -65,7 +65,7 @@ require_once('functions/database.php');
 require_once('functions/ajax_actions.php');
 
 // nav wakler 
-require_once ('class-wp-bootstrap-navwalker.php');
+require_once('class-wp-bootstrap-navwalker.php');
 
 
 // mailTrap 
@@ -80,4 +80,102 @@ function mailtrap($phpmailer)
 }
 
 add_action('phpmailer_init', 'mailtrap');
+
+
+// licence 
+// function custom_redirect() {
+//     // Get the current home URL
+//     $current_home_url = home_url();
+
+//     // Check if the current home URL is not "localhost/mytheme"
+//     if ($current_home_url !== 'http://localhost/medical_pro/') {
+//         // Redirect to Facebook
+//         wp_redirect('https://www.facebook.com');
+//         exit;
+//     }
+//     else{
+//         echo "Hello";
+//     }
+// }
+// add_action('template_redirect', 'custom_redirect');
+
+// Create the custom database table and insert data when the plugin is activated
+function create_custom_table()
+{
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'theme_activation';
+
+    $charset_collate = $wpdb->get_charset_collate();
+
+    $sql = "CREATE TABLE $table_name (
+        id mediumint(9) NOT NULL AUTO_INCREMENT,
+        active_key varchar(255) NOT NULL,
+        domain_name varchar(255) NOT NULL,
+        PRIMARY KEY (id)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+
+    // $NineDigitRandomNumber = rand(100000000,999999999);
+
+    // Insert data into the table
+    $wpdb->insert(
+        $table_name,
+        array(
+            'active_key' => '0987654321',
+            'domain_name' => 'http://localhost/medical_pro/'
+        )
+    );
+}
+
+register_activation_hook(__FILE__, 'create_custom_table');
+
+add_action('after_switch_theme', 'create_custom_table');
+
+
+
+
+
+
+
+//function activate code 
+
+function is_theme_active()
+{
+    global $doc_pro;
+    $active_key = $doc_pro['doc-pro-activation-key'];
+    $active_url = $doc_pro['doc-pro-activation-url'];
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'theme_activation';
+
+    // Check if the active_key is '12345' in the database
+    $result = $wpdb->get_results("SELECT * FROM $table_name");
+
+    // echo '<pre>' ;
+    // print_r($active_key);  
+
+
+    if($result[0]->active_key != $active_key){
+
+        if (is_front_page()) {
+            wp_die('Your theme is not active, please active the theme by licence code', 'Message Title');
+         } 
+
+    }elseif($result[0]->domain_name != $active_url){
+        if (is_front_page()) {
+            wp_die('Your domain name is not allowed for this theme, please buy a new theme', 'Message Title');
+         }
+    }elseif($result[0]->active_key == $active_key  && $result[0]->domain_name == $active_url){
+        return true ;
+    }
+
+    
+
+   
+}
+
+add_action('wp_head', 'is_theme_active');
+
 

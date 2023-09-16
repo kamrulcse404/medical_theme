@@ -9,6 +9,19 @@ Redux::setSection($opt_name, array(
     'id'               => 'header-section',
     'icon'             => 'fa fa-cog',
     'fields'           => array(
+
+        array(
+            'id' => 'doc-pro-activation-url',
+            'type' => 'text',
+            'title' => __('Theme Activation URL', 'doc_pro'),
+        ),
+        array(
+            'id' => 'doc-pro-activation-key',
+            'type' => 'text',
+            'title' => __('Theme Activation Key', 'doc_pro'),
+        ),
+
+
         array(
             'id' => 'header-logo',
             'type'    => 'media',
