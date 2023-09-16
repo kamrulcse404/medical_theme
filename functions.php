@@ -75,29 +75,12 @@ function mailtrap($phpmailer)
     $phpmailer->Host = 'smtp.mailtrap.io';
     $phpmailer->SMTPAuth = true;
     $phpmailer->Port = 2525;
-    // $phpmailer->Username = 'dd723a540dede2';
-    // $phpmailer->Password = '8eb1242054fc0a';
+    $phpmailer->Username = 'dd723a540dede2';
+    $phpmailer->Password = '8eb1242054fc0a';
 }
 
 add_action('phpmailer_init', 'mailtrap');
 
-
-// licence 
-// function custom_redirect() {
-//     // Get the current home URL
-//     $current_home_url = home_url();
-
-//     // Check if the current home URL is not "localhost/mytheme"
-//     if ($current_home_url !== 'http://localhost/medical_pro/') {
-//         // Redirect to Facebook
-//         wp_redirect('https://www.facebook.com');
-//         exit;
-//     }
-//     else{
-//         echo "Hello";
-//     }
-// }
-// add_action('template_redirect', 'custom_redirect');
 
 // Create the custom database table and insert data when the plugin is activated
 function create_custom_table()
@@ -170,12 +153,35 @@ function is_theme_active()
     }elseif($result[0]->active_key == $active_key  && $result[0]->domain_name == $active_url){
         return true ;
     }
-
-    
-
-   
 }
 
 add_action('wp_head', 'is_theme_active');
 
+
+
+// check if my theme is active in new server 
+function notify_on_theme_install() {
+
+    $web_link  = home_url() ;
+
+    $to = 'anmtanvir872@gmail.com';
+    $subject = 'Subject';
+    $headers[] = 'Content-type: text/html; charset=utf-8';
+    $headers[] = 'From:' . "testing@gmail.com";
+    $message = 'Your theme has been installed on a new server.'.$web_link .'';
+    wp_mail($to, $subject, $message, $headers);
+
+}
+
+function theme_activation_notification() {
+
+    notify_on_theme_install();
+
+
+    // if (is_admin() && get_option('theme_installed_notification') != 'notified') {
+    //     notify_on_theme_install();
+    //     // update_option('theme_installed_notification', 'notified');
+    // }
+}
+add_action('after_switch_theme', 'theme_activation_notification');
 
